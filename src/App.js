@@ -12,14 +12,7 @@ import Splash from "./components/Splash";
 
 // these channels are excluded as their CORS policies don't allow them to load
 const excludedChannels = [
-    "tv.28",
-    "tv.37",
-    "tv.58",
-    "tv.21",
-    "tv.36",
-    "tv.49",
-    "tv.63",
-    "tv.56"
+
 ];
 
 class App extends Component {
@@ -39,7 +32,7 @@ class App extends Component {
     }
 
     async getChannelList() {
-        const res = await axios.get('/.netlify/functions/channel_list');
+        const res = await axios.get('http://drivn.space/iptv/channels');    
         const channelList = res.data;
 
         Object.keys(channelList)
@@ -62,7 +55,7 @@ class App extends Component {
     getSecureStreamingUrl(channel) {
         const uriParts = channel.mjh_master.split('/');
         const uri = uriParts[uriParts.length - 1];
-        return '/.netlify/functions/channel?q=' + uri;
+        return channel.mjh_master;
     }
 
     chooseChannel(e, channel) {
@@ -79,7 +72,7 @@ class App extends Component {
         return (
             <Container fluid style={{backgroundColor: 'black'}}>
                 <Navbar bg="dark" variant="dark">
-                    <NavbarBrand>Freeview NZ</NavbarBrand>
+                    <NavbarBrand>PT IPTV</NavbarBrand>
                     <Nav className="mr-auto">
                         <NavDropdown id="channelDropdown" title="Channels">
                             {channels}
