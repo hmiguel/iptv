@@ -53,8 +53,8 @@ class App extends Component {
     }
 
     getSecureStreamingUrl(channel) {
-        const uriParts = channel.mjh_master.split('/');
-        const uri = uriParts[uriParts.length - 1];
+        //const uriParts = channel.mjh_master.split('/');
+        //const uri = uriParts[uriParts.length - 1];
         return channel.mjh_master;
     }
 
