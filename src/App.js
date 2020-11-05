@@ -32,7 +32,7 @@ class App extends Component {
     }
 
     async getChannelList() {
-        const res = await axios.get('http://drivn.space/iptv/channels');    
+        const res = await axios.get('https://drivn.space/iptv/channels');    
         const channelList = res.data;
 
         Object.keys(channelList)
