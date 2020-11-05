@@ -1,2 +1,4 @@
-[build]
+[build]	
+    command = "yarn build"
+    build = "build"
     functions = "functions/"
